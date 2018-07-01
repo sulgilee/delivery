@@ -1,16 +1,16 @@
-package com.delivery.domain;
+package com.delivery.dto;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.delivery.domain.AbstractEntity;
 
-@Getter
-@Setter
-@Entity
-public class Drivers extends AbstractEntity {
+import lombok.Data;
+
+@Data
+@MappedSuperclass
+public class DriverDetailDto extends AbstractEntity {
     @Id
     private Long id;
     @Column(nullable=false, columnDefinition="TEXT", unique=true)
@@ -29,6 +29,4 @@ public class Drivers extends AbstractEntity {
     private int recommendedCount;
     @Column(nullable=false, length=100, columnDefinition="int default 0")
     private int reportedCount;
-    
-    
 }
